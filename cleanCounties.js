@@ -13,6 +13,15 @@ fs.readFile("./counties_dirty.txt", "utf8", function read(err, data) {
   //Convert the string into an array
   const cArray = cString.split("    ");
 
+  countiesArray = JSON.stringify(cArray);
+
+  fs.writeFile("./countiesString.txt", countiesArray, function (err) {
+    if (err) {
+      return console.log(err);
+    }
+    //There are 47 counties in Kenya. This should be the length of the array
+    console.log(cArray.length + " Counties saved");
+  });
   //Write out the result to the same directory
   fs.writeFile("./counties.txt", cArray, function (err) {
     if (err) {
@@ -24,6 +33,7 @@ fs.readFile("./counties_dirty.txt", "utf8", function read(err, data) {
 });
 
 /*For the first 9, you can manualy add spaces after comma.
+ * (See counties__final)
  * Since there are double digits after 10, you get 2 spaces
  *instead of one
  */
