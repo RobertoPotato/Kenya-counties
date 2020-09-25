@@ -31,9 +31,3 @@ fs.readFile("./counties_dirty.txt", "utf8", function read(err, data) {
     console.log(cArray.length + " Counties saved");
   });
 });
-
-/*For the first 9, you can manualy add spaces after comma.
- * (See counties__final)
- * Since there are double digits after 10, you get 2 spaces
- *instead of one
- */
