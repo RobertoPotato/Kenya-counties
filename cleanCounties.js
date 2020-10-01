@@ -13,7 +13,7 @@ fs.readFile("./counties_dirty.txt", "utf8", function read(err, data) {
   //Convert the string into an array
   const cArray = cString.split("    ");
 
-  countiesArray = JSON.stringify(cArray);
+  countiesArray = JSON.stringify(cArray.sort());
 
   fs.writeFile("./countiesString.txt", countiesArray, function (err) {
     if (err) {
@@ -23,6 +23,7 @@ fs.readFile("./counties_dirty.txt", "utf8", function read(err, data) {
     console.log(cArray.length + " Counties saved");
   });
   //Write out the result to the same directory
+  /*
   fs.writeFile("./counties.txt", cArray, function (err) {
     if (err) {
       return console.log(err);
@@ -30,4 +31,5 @@ fs.readFile("./counties_dirty.txt", "utf8", function read(err, data) {
     //There are 47 counties in Kenya. This should be the length of the array
     console.log(cArray.length + " Counties saved");
   });
+  */
 });
